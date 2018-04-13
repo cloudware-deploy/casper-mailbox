@@ -17,5 +17,16 @@
 # along with casper-mailbox.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require "bundler/gem_tasks"
-task :default => :spec
+module Casper
+  module Mailbox
+    class Engine < ::Rails::Engine
+      isolate_namespace Casper::Mailbox
+
+      initializer :append_migrations do |app|
+        unless app.root.to_s.match root.to_s
+          app.config.paths["db/migrate"] += config.paths["db/migrate"].expanded
+        end
+      end
+    end
+  end
+end

@@ -17,5 +17,6 @@
 # along with casper-mailbox.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require "bundler/gem_tasks"
-task :default => :spec
+require 'sp-duh'
+
+require File.expand_path(File.join(File.dirname(__FILE__), 'casper', 'mailbox'))
