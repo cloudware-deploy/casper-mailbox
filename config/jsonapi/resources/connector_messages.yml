@@ -1,0 +1,6 @@
+---
+  -
+    # connector_messages
+    connector_messages:
+      pg-schema: "public"
+      pg-table: "connector_messages"
