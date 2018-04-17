@@ -4,7 +4,7 @@ class CreateConnectorMessages < ActiveRecord::Migration
       CREATE TABLE public.connector_messages (
           id bigserial PRIMARY KEY USING INDEX TABLESPACE tablespace_000,
           connector text NOT NULL,
-          job_id bigint,
+          cluster_id integer NOT NULL,
           entity_type text NOT NULL,
           entity_id integer NOT NULL,
           entity_tax_registration_number text,
