@@ -17,6 +17,7 @@
 # along with casper-mailbox.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require 'sp-duh'
+require 'sp-duh' unless RUBY_ENGINE == 'jruby'
+require 'sp-job'
 
 require File.expand_path(File.join(File.dirname(__FILE__), 'casper', 'mailbox'))

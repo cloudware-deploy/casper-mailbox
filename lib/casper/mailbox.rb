@@ -19,13 +19,16 @@
 
 require "casper/mailbox/version"
 require "casper/mailbox/engine"
+require "casper/mailbox/db"
 
 module Casper
   module Mailbox
-    # Specify that this gem is a JSONAPI resource publisher
-    include SP::Duh::JSONAPI::ResourcePublisher
+    unless RUBY_ENGINE == 'jruby'
+      # Specify that this gem is a JSONAPI resource publisher
+      include SP::Duh::JSONAPI::ResourcePublisher
 
-    # Publish the root location for JSONAPI resources configuration
-    self.jsonapi_resources_root = File.join(File.expand_path(File.join(File.dirname(__FILE__), '..', '..')), 'config', 'jsonapi', 'resources')
+      # Publish the root location for JSONAPI resources configuration
+      self.jsonapi_resources_root = File.join(File.expand_path(File.join(File.dirname(__FILE__), '..', '..')), 'config', 'jsonapi', 'resources')
+    end
   end
 end
