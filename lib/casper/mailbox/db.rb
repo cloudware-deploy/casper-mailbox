@@ -38,7 +38,7 @@ module Casper
           VALUES ($1, $2, $3, $4, $5, $6)
           RETURNING id
         ],
-        connector,
+        connector.upcase,
         1,
         entity[:type],
         entity[:id],
