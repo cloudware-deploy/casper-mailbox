@@ -21,7 +21,7 @@ module Casper
   module Mailbox
     extend SP::Job::Common
 
-    def self.insert(connector, entity = {}, payload = {}, cluster_id = 1)
+    def self.insert(connector, entity = {}, payload = {})
       # {
       #   type: payload[:type],
       #   operations: [
@@ -34,12 +34,11 @@ module Casper
       #   ]
       # }
       rs = db.execp(%Q[
-          INSERT INTO public.connector_messages (connector, cluster_id, entity_type, entity_id, entity_tax_registration_number, payload)
-          VALUES ($1, $2, $3, $4, $5, $6)
+          INSERT INTO public.connector_messages (connector, entity_type, entity_id, entity_tax_registration_number, payload)
+          VALUES ($1, $2, $3, $4, $5)
           RETURNING id
         ],
         connector.upcase,
-        cluster_id,
         entity[:type],
         entity[:id],
         entity[:tax_registration_number],
