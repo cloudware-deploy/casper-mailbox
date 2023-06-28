@@ -17,31 +17,29 @@
 # along with casper-mailbox.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-lib = File.expand_path("../lib", __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "casper/mailbox/version"
+require 'casper/mailbox/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "casper-mailbox"
+  spec.name          = 'casper-mailbox'
   spec.version       = Casper::Mailbox::VERSION
-  spec.authors       = ["Tiago Dias"]
-  spec.email         = ["tiago.dias@cldware.com"]
+  spec.authors       = ['Tiago Dias']
+  spec.email         = ['tiago.dias@cldware.com']
 
-  spec.summary       = %q{A gem to manage a mailbox system to send and receive messages with multiple connectors}
-  spec.homepage      = "https://github.com/toconline/casper-mailbox"
-  spec.license       = "AGPL"
+  spec.summary       = 'A gem to manage a mailbox system to send and receive messages with multiple connectors'
+  spec.homepage      = 'https://github.com/toconline/casper-mailbox'
+  spec.license       = 'AGPL'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
-  spec.bindir        = "bin"
+  spec.bindir        = 'bin'
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
 
   spec.add_dependency 'sp-job'
-  spec.add_dependency 'sp-duh' unless RUBY_ENGINE == 'jruby'
-  spec.add_dependency "rails", "~> 3.2"
 
-  spec.add_development_dependency "bundler", "~> 1.16"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'rake'
 end
