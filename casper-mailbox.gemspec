@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tiago.dias@cldware.com"]
 
   spec.summary       = %q{A gem to manage a mailbox system to send and receive messages with multiple connectors}
-  spec.homepage      = "https://github.com/cloudware-deploy/casper-mailbox"
+  spec.homepage      = "https://github.com/toconline/casper-mailbox"
   spec.license       = "AGPL"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
