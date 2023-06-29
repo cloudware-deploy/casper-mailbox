@@ -23,7 +23,7 @@ GIT
 PATH
   remote: .
   specs:
-    casper-mailbox (0.1.0)
+    casper-mailbox (0.1.1)
       sp-job
 
 GEM
